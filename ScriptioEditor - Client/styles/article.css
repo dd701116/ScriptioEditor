@@ -1,0 +1,23 @@
+
+article.icon{
+	width: 100px;
+	height: 100px;
+	padding: 5px;
+	display: block;
+	text-align: center;
+}
+
+article.icon>img{
+	height: 70px;
+}
+
+article.icon>p{
+	text-align: center;
+	margin: auto;
+	width: 100%;
+	word-wrap: break-word;
+}
+
+article.icon:hover{
+	background: #433DF2;
+}

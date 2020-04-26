@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<!--	CSS 	-->
+	<link rel="stylesheet" type="text/css" href="styles/main.css">
+	<link rel="stylesheet" type="text/css" href="styles/tab.css">
+	<link rel="stylesheet" type="text/css" href="styles/article.css">
+	<link rel="stylesheet" type="text/css" href="styles/popup.css">
+
+
+	<!--	JS	 -->
+	<script src="libs/jquery/jquery.js"></script>
+	<script src="libs/tinymce/tinymce.min.js"></script>
+	<script src="libs/tinymce/jquery.tinymce.min.js"></script>
+	<script src="http://localhost:7888/socket.io/socket.io.js"></script>
+	<script type="module" src="script.js"></script>
+	<script type="module" src="socket.js"></script>
+
+	<meta charset="utf-8"/>
+
+	<title>ScriptioEditor</title>
+
+
+</head>
+<body>
+
+	<header>
+		<nav class="tab">
+
+			<!-- left -->
+			<button id="btnMyDrive" class="tablinks viewlinks left active" >My Drive</button>
+			<button id="btnNewDocument" class="tablinks viewlinks left" >New Document</button>
+
+			<!-- right -->
+			<button id="btnHelp" class="tablinks viewlinks right">Help</button>
+			<button id="btnAbout" class="tablinks viewlinks right">About</button>
+
+		</nav>
+		<h3 id="username" style="color: white; margin-top: 10px"></h3>
+	</header>
+
+
+	<section id="mydrive" class="view bg_blue_light show">
+		<div id="drive_yours" class="drive drive_parent">			
+			<h3 style="margin-right: 20px;">Yours</h3><hr>
+			<div id="mydrive_files" class="drive drive_child"></div>
+		</div>
+		<div id="drive_shared" class="drive drive_parent">
+			<h3 style="margin-right: 20px;">Shared</h3><hr>
+			<div id="shareDrive_files" class="drive drive_child"></div>
+		</div>
+    </section>
+
+    <section id="new" class="view bg_blue_light">
+		<div id="document_header" style="display: inline-flex;width: 100%;">
+			<input id="document_uid" type="text" class="input" style="height: 50px; width: 20%; font-size: 20px; margin: 10px 0;" disabled >
+    		<input id="document_name" type="text" class="input" style="height: 50px; width: 80%; font-size: 20px; margin: 10px 0;" placeholder="Filename" name="name" >
+    	</div>
+		<textarea id="document"></textarea>
+		<div id="document_controle">
+			<button id="btnDocumentInvite" class="btn right">Invite</button>
+		</div>		
+    </section>
+
+    <section id="set_username" style="height: 150px;z-index: 1100" class="popup bg_white">
+		<div class="popup_header">
+			<h2>Who ?</h2>
+		</div>
+		<div class="popup_content">
+
+			<input type="text" name="input_username" placeholder="username" id="input_username" class="input">
+
+			<div class="button_action">
+	    		<button id="input_username_submit">Submit</button>
+	    	</div>
+
+		</div>
+
+	</section>
+
+	<section id="document_invite_member" style="height: 300px;z-index: 1100" class="popup bg_white">
+		<div class="popup_header">
+			<h2>Invite</h2>
+		</div>
+		<div class="popup_content">
+			<input type="text" class="input" placeholder="search" style="width: 100%;">
+
+			<select id="document_invite_member_list" style="overflow-y: scroll;height: 150px;width: 100%;" multiple></select>
+
+			<div class="button_action">
+	    		<button id="btnDocumentInvite_ok">OK</button>
+	    	</div>
+
+		</div>
+
+	</section>
+
+	<section id="alert" style="height: 300px;z-index: 1100" class="popup bg_white">
+		<div class="popup_header">
+			<h2>Alerte</h2>
+		</div>
+		<div class="popup_content">
+
+			<p id="alert_message"></p>
+
+			<div class="button_action">
+	    		<button id="btnAlert_ok">OK</button>
+	    	</div>
+
+		</div>
+
+	</section>
+
+	<div id="disable" style="position: absolute;top: 0;left: 100px; width: 1500px;height: 900px;background-color: rgba(255,255,255,0.5);z-index: 1000;" class=""></div>
+
+</body>
+</html>
